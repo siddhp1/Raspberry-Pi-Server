@@ -1,0 +1,9 @@
+{
+    "Button Pin": 18,
+    "Screens": [
+        {"Top": "system_time", "Bottom": "uptime"},
+        {"Top": "ip", "Bottom": "network_usage"},
+        {"Top": "cpu_temp", "Bottom": "cpu_usage"},
+        {"Top": "ram_usage", "Bottom": "disk_usage"}
+    ]
+}
