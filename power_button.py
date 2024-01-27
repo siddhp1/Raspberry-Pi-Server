@@ -7,8 +7,22 @@ GPIO.setmode(GPIO.BCM)
 power_button_pin = 21
 GPIO.setup(power_button_pin, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+# Setup LEDs
+red_led_pin = 13
+GPIO.setup(red_led_pin, GPIO.OUT)
+GPIO.output(red_led_pin, GPIO.LOW)
+
+yellow_led_pin = 6
+GPIO.setup(yellow_led_pin, GPIO.OUT)
+GPIO.output(yellow_led_pin, GPIO.LOW)
+
+green_led_pin = 5
+GPIO.setup(green_led_pin, GPIO.OUT)
+GPIO.output(green_led_pin, GPIO.LOW)
+ 
 # Initial state
 in_sleep_mode = False
+GPIO.output(green_led_pin, GPIO.HIGH)
 
 '''
 Still need to add the functionality
@@ -24,12 +38,17 @@ Stuff to add:
 def sleep_mode():
     print("Entering sleep mode...")
     # Add code to enter sleep mode here
+    GPIO.output(green_led_pin, GPIO.LOW)
+    GPIO.output(yellow_led_pin, GPIO.HIGH)
+    
     time.sleep(1)  # Placeholder for sleep duration
     print("Exiting sleep mode.")
 
 # Wake function
 def wake_up():
     print("Waking up...")
+    GPIO.output(yellow_led_pin, GPIO.LOW)
+    GPIO.output(green_led_pin, GPIO.HIGH)
 
 # Check for button press
 while True:
@@ -50,4 +69,7 @@ while True:
             sleep_mode()
             in_sleep_mode = True
     else:
+        GPIO.output(green_led_pin, GPIO.LOW)
+        GPIO.output(yellow_led_pin, GPIO.LOW)
+        GPIO.output(red_led_pin, GPIO.HIGH)
         subprocess.run(['sudo', 'shutdown', '-h', 'now'])

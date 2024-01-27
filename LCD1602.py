@@ -94,6 +94,10 @@ class CharLCD1602(object):
     def openlight(self):  # Enable the backlight
         self.bus.write_byte(0x27,0x08)
         self.bus.close()
+        
+    def closelight(self):  # Disable the backlight
+        self.bus.write_byte(0x27, 0x00)
+        self.bus.close()
 
     def write(self,x, y, str):
         if x < 0:
@@ -113,22 +117,3 @@ class CharLCD1602(object):
         addr = 0x80 + 0x40 * y + x
         self.send_command(addr)
         self.send_data(num)
-        
-def loop():
-    count = 0
-    while(True):
-        lcd1602.clear()
-        lcd1602.write(0, 0, '  Hello World!  ' )# display CPU temperature
-        lcd1602.write(0, 1, '  Counter: ' + str(count) )   # display the time
-        time.sleep(1)
-        count += 1
-def destroy():
-    lcd1602.clear()
-lcd1602 = CharLCD1602()  
-if __name__ == '__main__':
-    print ('Program is starting ... ')
-    lcd1602.init_lcd(addr=None, bl=1)
-    try:
-        loop()
-    except KeyboardInterrupt:
-        destroy()
