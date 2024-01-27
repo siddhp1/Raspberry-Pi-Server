@@ -1,5 +1,9 @@
 {
-    "Button Pin": 18,
+    "Red LED Pin": 13,
+    "Yellow LED Pin": 6,
+    "Green LED Pin": 5,
+    "Power Button Pin": 21,
+    "Display Cycle Button Pin": 18,
     "Screens": [
         {"Top": "system_time", "Bottom": "uptime"},
         {"Top": "ip", "Bottom": "network_usage"},

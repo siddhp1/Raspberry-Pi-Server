@@ -59,7 +59,6 @@ class CharLCD1602(object):
 
     def init_lcd(self,addr=None, bl=1):
         i2c_list = self.i2c_scan()
-#         print(f"i2c_list: {i2c_list}")
         if addr is None:
             if '27' in i2c_list:
                 self.LCD_ADDR = self.PCF8574_address
@@ -93,11 +92,9 @@ class CharLCD1602(object):
 
     def openlight(self):  # Enable the backlight
         self.bus.write_byte(0x27,0x08)
-        self.bus.close()
         
-    def closelight(self):  # Disable the backlight
-        self.bus.write_byte(0x27, 0x00)
-        self.bus.close()
+    # def closelight(self):  # Disable the backlight
+    #     self.bus.write_byte(0x27, 0x00)
 
     def write(self,x, y, str):
         if x < 0:
