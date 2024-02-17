@@ -14,15 +14,15 @@ with open('config.json') as config_file:
     config = json.load(config_file)
 
 # Get LED GPIO pins from config file  
-RED_LED_PIN = config.get("Red LED Pin", 13)
-YELLOW_LED_PIN = config.get("Yellow LED Pin", 6)
-GREEN_LED_PIN = config.get("Green LED Pin", 5)
+RED_LED_PIN = config.get("Red LED Pin")
+YELLOW_LED_PIN = config.get("Yellow LED Pin")
+GREEN_LED_PIN = config.get("Green LED Pin")
  
 # Get power button GPIO pin from config file
-POWER_BUTTON_PIN = config.get("Power Button Pin", 21)
+POWER_BUTTON_PIN = config.get("Power Button Pin")
     
 # Get display cycle button GPIO pin from config file
-DISPLAY_CYCLE_BUTTON_PIN = config.get("Display Cycle Button Pin", 18)
+DISPLAY_CYCLE_BUTTON_PIN = config.get("Display Cycle Button Pin")
 
 # Get screen layouts from config file
 SCREENS = config.get("Screens", [])
