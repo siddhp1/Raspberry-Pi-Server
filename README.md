@@ -24,7 +24,7 @@ The following GPIO components are required to run this project:
 
 Connect the components following the diagram below:
 
-INSERT IMAGE HERE
+<p align="center"><a><img width="600" alt="Thumbnail Image of ConnectX" src="https://raw.githubusercontent.com/siddhp1/Raspberry-Pi-Server/main/circuit-diagram.png"></a></p>
 
 ### Install Dependencies
 
